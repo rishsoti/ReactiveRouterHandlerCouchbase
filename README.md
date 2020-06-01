@@ -23,6 +23,8 @@ Right click on the application and run as springboot App
 The server will start at <http://localhost:8080>.
 
 **3.  Exploring the Rest APIs**
+**1. Clone the application**
+
 
 The application defines following REST APIs
 
