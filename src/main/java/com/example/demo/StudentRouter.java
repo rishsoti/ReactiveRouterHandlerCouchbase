@@ -15,8 +15,8 @@ public class StudentRouter {
 		return RouterFunctions.route(RequestPredicates.GET("/hr/students"),handlers::getAll)
 		               .andRoute(RequestPredicates.GET("/hr/students/{id}"),handlers::getById)
 		               .andRoute(RequestPredicates.POST("/hr/students"),handlers::postStudent)
-		               .andRoute(RequestPredicates.PUT("/hr/update"),handlers::updateStudent)
-		               .andRoute(RequestPredicates.DELETE("/hr/delete"),handlers::deleteStudent);
+		               .andRoute(RequestPredicates.PUT("/hr/students/{id}"),handlers::updateStudent)
+		               .andRoute(RequestPredicates.DELETE("/hr/students/{id}"),handlers::deleteStudent);
 		
 
 	}

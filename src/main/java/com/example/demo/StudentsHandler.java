@@ -18,14 +18,16 @@ public class StudentsHandler {
 
 	//GETALL
 	public Mono<ServerResponse> getAll(ServerRequest request) {
-
+		
+		
 		return ServerResponse.ok().contentType(MediaType.TEXT_EVENT_STREAM).body(service.findAll().delayElements(Duration.ofSeconds(1)),Student.class);      //object,type of object
 	}
 
 	//GET BY ID
 	public Mono<ServerResponse> getById(ServerRequest request) {
 
-		return ServerResponse.ok().body(service.findAll(),Student.class);      
+		String myId = request.pathVariable("id").toString();
+		return ServerResponse.ok().body(service.findById(myId),Student.class);      
 	}
 
 	//ADD
