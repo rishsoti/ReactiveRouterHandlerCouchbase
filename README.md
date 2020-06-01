@@ -17,12 +17,14 @@ Reactive Rest APIs with Spring WebFlux and Reactive MongoDB using Handler and Ro
 git clone https://github.com/rishsoti/ReactiveRouterHandlerMongodb.git```
 
 **2. Build and Run the app using maven**
+**1. Clone the application**
 
 Right click on the application and run as springboot App
 
 The server will start at <http://localhost:8080>.
 
 **3.  Exploring the Rest APIs**
+**1. Clone the application**
 **1. Clone the application**
 
 
@@ -56,13 +58,13 @@ Spring WebFlux is the new reactive web framework that comes with Spring 5. It is
 The Mono
 Mono: Returns 0 or 1 element.
 The Mono API allows producing only one value.
-Mono<String> mono = Mono.just(ìSpring Frameworkî);
+Mono<String> mono = Mono.just(‚ÄúSpring Framework‚Äù);
 Mono<String> mono = Mono.empty();
 This is limited to no more than one element.
 The Flux
-Flux: Returns 0ÖN elements.
+Flux: Returns 0‚Ä¶N elements.
 The Flux can be endless, it can produce multiple values. Here, we have a static stream of the thee elements.
-Flux<String> flux = Flux.just(ìOneî, ìTwoî, ìThreeî);
+Flux<String> flux = Flux.just(‚ÄúOne‚Äù, ‚ÄúTwo‚Äù, ‚ÄúThree‚Äù);
 
 
 
