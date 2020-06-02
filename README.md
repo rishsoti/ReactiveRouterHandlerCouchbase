@@ -1,4 +1,4 @@
-# ReactiveRouterHandlerMongodb
+﻿# ReactiveRouterHandlerMongodb
 Reactive Rest APIs with Spring WebFlux and Reactive MongoDB using Handler and Routers
 
 
@@ -23,9 +23,32 @@ Right click on the application and run as springboot App
 
 The server will start at <http://localhost:8080>.
 
+**3. How to configure couchbase**
 
 
-**3. Exploring the Rest APIs**
+*1. Download and install Couchbase*
+
+*2. Run through the initial setup and navigate to the dashboard on http://127.0.0.1:8091*
+
+*3. In Buckets: create a new bucket called demo*
+
+*4. In Security: Add a new user called demouser with password 123456 and grant application access to the bucket demo*
+
+*5. In Query: Add a primary index to the bucket demo by executing the query CREATE PRIMARY INDEX ON demo USING GSI;*
+
+*6. In Indexes -> Views: Add a new development view*
+
+*7. design document name is student*
+
+*8. view name is all*
+
+*9. edit the view and change the code of Map to function (doc, meta) { emit(meta.id, doc); }*
+
+*10. In Indexes -> Views: Publish the view*
+
+
+
+**4. Exploring the Rest APIs**
 
 
 The application defines following REST APIs
@@ -40,7 +63,7 @@ The application defines following REST APIs
 
 5. DELETE hr/students/{id} - Delete a Student
 
-**4. Lombok Dependency**
+**5. Lombok Dependency**
 
 
 We are using here project Lombok dependency in order to avoid boilerplate code as it gives you facility to create getter,setters,constructors all by simple annotations.
@@ -49,15 +72,15 @@ Please have a look on the link for further details and if you are familiar with 
 
 https://projectlombok.org/
 
-**5. Reactive Programming Overview**
+**6. Reactive Programming Overview**
 
 Reactive programming is a non-blocking application that is asynchronous, even-driven and requires a small number of threads to scale.
 
-**6. Spring WebFlux**
+**7. Spring WebFlux**
 
 Spring WebFlux is the new reactive web framework that comes with Spring 5. It is not a replacement for Spring MVC but a fully non-blocking, Reactive Streams back pressure supporting framework.
 
-**7. Main Components**
+**8. Main Components**
 
 The Mono
 
