@@ -38,24 +38,24 @@ public class StudentsHandler {
 	}
 
 	//UPDATE
-	public Mono updateStudent(ServerRequest request) {
+	public Mono<ServerResponse> updateStudent(ServerRequest request) {
+		
+		String myId = request.pathVariable("id").toString();
 		final Mono<Student> student = request.bodyToMono(Student.class);
-		Mono student_db = service.findById(student.block().getId());
-
-		service.deleteById(student_db);
-		service.save(student);
-
-		return ServerResponse.ok().body(service.findById(student.block().getId()),Student.class);             
+		
+		return ServerResponse.ok().body(student.map(ref -> new Student(myId, ref.getFirstName(),ref.getLastName())) 
+		        .flatMap(service::save),Student.class);             
 	}
 
 
 	//REMOVE
-	public Mono deleteStudent(ServerRequest request) {
+	public Mono<ServerResponse> deleteStudent(ServerRequest request) {
 		String myId = request.pathVariable("id").toString();
 
-		Mono student = service.findById(myId);
-		service.deleteById(student);
-
-		return ServerResponse.ok().body("",Student.class);     
+        return ServerResponse.ok().body(service.delete(myId),Student.class);   
+		
 	}
+
+
+
 }

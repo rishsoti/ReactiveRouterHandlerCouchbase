@@ -10,36 +10,39 @@ import reactor.core.publisher.Mono;
 @Transactional
 @AllArgsConstructor
 public class StudentService {
-@Autowired
- private StudentRepository registrationRepository;
-public Flux<Student> findAll() {
-  return registrationRepository.findAll().switchIfEmpty(Flux.empty());
- }
-public Mono<Student> findById(final String id) {
-  return registrationRepository.findById(id);
- }
-public Mono update(final String id, final Student student) {
-  return registrationRepository.save(student);
- }
-public Mono save(final Student student) {
-  return registrationRepository.save(student);
- }
- 
- public Mono delete(final String id) {
-  final Mono<Student> dbStudent = findById(id);
-  if (Objects.isNull(dbStudent)) {
-   return Mono.empty();
-  }
-  return findById(id).switchIfEmpty(Mono.empty()).filter(Objects::nonNull).flatMap(studentToBeDeleted -> registrationRepository
-    .delete(studentToBeDeleted).then(Mono.just(studentToBeDeleted)));
- }
- 
- 
- public Flux<Student> save(final Mono<Student> student) {
-	  return registrationRepository.insert(student);
-	 }
-public void deleteById(Mono student_db) {
-	registrationRepository.deleteById(student_db);
+	@Autowired
 	
-}
+	private StudentRepository repo;
+	
+	public Flux<Student> findAll() {
+		return repo.findAll().switchIfEmpty(Flux.empty());
+	}
+	public Mono<Student> findById(final String id) {
+		return repo.findById(id);
+	}
+
+	public Mono save(final Student student) {
+		return repo.save(student);
+	}
+
+	public Mono delete(final String id) {
+		final Mono<Student> dbStudent = findById(id);
+		if (Objects.isNull(dbStudent)) {
+			return Mono.empty();
+		}
+		return findById(id).switchIfEmpty(Mono.empty()).filter(Objects::nonNull).flatMap(studentToBeDeleted -> repo
+				.delete(studentToBeDeleted).then(Mono.just(studentToBeDeleted)));
+	}
+
+
+	public Flux<Student> save(final Mono<Student> student) {
+		return repo.insert(student);
+	}
+	
+	public void deleteById(Mono student_db) {
+		repo.deleteById(student_db);
+
+	}
+
+
 }
