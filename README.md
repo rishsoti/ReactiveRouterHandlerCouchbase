@@ -1,5 +1,5 @@
-﻿# ReactiveRouterHandlerMongodb
-Reactive Rest APIs with Spring WebFlux and Reactive MongoDB using Handler and Routers
+# ReactiveRouterHandlerCouchbaseDb
+Reactive Rest APIs with Spring WebFlux and Reactive CouchbaseDb using Handler and Routers
 
 
 ## Requirements
@@ -8,7 +8,7 @@ Reactive Rest APIs with Spring WebFlux and Reactive MongoDB using Handler and Ro
 
 2. Maven - 3.x.x
 
-3. MongoDB - 3.x.x
+3. CouchbaseDb - 6.x.x
 
 ## Steps to Setup
 
@@ -95,14 +95,4 @@ The Flux
 Flux: Returns 0…N elements.
 The Flux can be endless, it can produce multiple values. Here, we have a static stream of the thee elements.
 Flux<String> flux = Flux.just(“One”, “Two”, “Three”);
-
-
-
-
-
-
-
-
-
-
 
