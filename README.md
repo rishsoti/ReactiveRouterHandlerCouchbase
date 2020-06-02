@@ -26,25 +26,25 @@ The server will start at <http://localhost:8080>.
 **3. How to configure couchbase**
 
 
-**1. Download and install Couchbase**
+*1. Download and install Couchbase*
 
-**2. Run through the initial setup and navigate to the dashboard on http://127.0.0.1:8091**
+*2. Run through the initial setup and navigate to the dashboard on http://127.0.0.1:8091*
 
-**3. In Buckets: create a new bucket called demo**
+*3. In Buckets: create a new bucket called demo*
 
-**4. In Security: Add a new user called demouser with password 123456 and grant application access to the bucket demo**
+*4. In Security: Add a new user called demouser with password 123456 and grant application access to the bucket demo*
 
-**5. In Query: Add a primary index to the bucket demo by executing the query CREATE PRIMARY INDEX ON demo USING GSI;**
+*5. In Query: Add a primary index to the bucket demo by executing the query CREATE PRIMARY INDEX ON demo USING GSI;*
 
-**6. In Indexes -> Views: Add a new development view**
+*6. In Indexes -> Views: Add a new development view*
 
-**7. design document name is student**
+*7. design document name is student*
 
-**8. view name is all**
+*8. view name is all*
 
-**9. edit the view and change the code of Map to function (doc, meta) { emit(meta.id, doc); }**
+*9. edit the view and change the code of Map to function (doc, meta) { emit(meta.id, doc); }*
 
-**10. In Indexes -> Views: Publish the view**
+*10. In Indexes -> Views: Publish the view*
 
 
 
