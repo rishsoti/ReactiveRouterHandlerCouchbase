@@ -36,7 +36,7 @@ public class StudentService {
 
 
 	public Flux<Student> save(final Mono<Student> student) {
-		return repo.insert(student);
+		return repo.save(student);
 	}
 	
 	public void deleteById(Mono student_db) {
